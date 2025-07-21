@@ -20,7 +20,6 @@ class CarMake(models.Model):
     def __str__(self):
         return self.name
 
-
 # <HINT> Create a Car Model model `class CarModel(models.Model):`:
 # - Many-To-One relationship to Car Make model (One Car Make has many
 # Car Models, using ForeignKey field)
@@ -36,14 +35,14 @@ class CarModel(models.Model):
     name = models.CharField(max_length=100)
     car_types = [
         ('sedan', 'Sedan'),
-        ('SUV', 'SUV'),
+        ('suv', 'SUV'),
         ('wagon', 'Wagon'),
     ]
     type = models.CharField(max_length=10, choices=car_types, default='suv')
     year = models.IntegerField(
-        default=2025, 
+        default=2025,
         validators=[
-            MaxValueValidator(2025), 
+            MaxValueValidator(2025),
             MinValueValidator(2010),
             ])
 
